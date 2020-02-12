@@ -1,26 +1,40 @@
 import React from 'react'
+import emojiDisplayer from '../services/emoji'
+import timeService from '../services/time'
+import tripService from '../services/trip'
 
-const Leg = ({ leg, date, returnDevice, time }) => {
+const Leg = ({ leg }) => {
+
+  const mode = tripService.returnDevice(leg.mode)
+  const route = () => {
+    if (leg.route) {
+      return leg.route && leg.route.shortName
+    }
+    return tripService.distance(leg.distance) + 'km'
+  }
+
+  const start = () => {
+    if (leg.from.name === 'Origin') {
+      return 'Ruskeasanta'
+    }
+    return leg.from.name
+  }
+
+  const destination = () => {
+    if (leg.to.name === 'Destination') {
+      return 'Eficode'
+    }
+    return leg.to.name
+  }
 
   return (
-    <div>
-      <div className={leg.mode}>
-        <p>Kulje {returnDevice(leg.mode)} {leg.mode !== 'WALK' && leg.route.shortName} {leg.mode === 'WALK' &&
-          <span>{Math.round(leg.distance)} metriä</span>}:
-              {leg.from.name === 'Origin' ?
-            <span> Koti - {leg.to.name}</span>
-            :
-            <span> {leg.from.name} - {leg.to.name === 'Destination' ?
-              <span>Työpaikka</span>
-              :
-              <span>{leg.to.name}</span>
-            }</span>
-          }
-        </p>
-        <p>Lähtöaika: {date(leg.startTime)}</p>
-        <p>Saapumisaika: {date(leg.endTime)}</p>
-        <p>Kesto: {time(leg.duration)}</p>
-      </div>
+    <div className={leg.mode}>
+      <div className="emoji">{emojiDisplayer(leg.mode)}</div>
+      <p>Kulje {mode} {route()}:</p>
+      <p>{start()} - {destination()}</p>
+      <p> Lähtö: {timeService.date(leg.startTime)}</p>
+      <p> Perillä: {timeService.date(leg.endTime)}</p>
+      <p> Kesto: {timeService.time(leg.duration)}</p>
     </div>
   )
 }

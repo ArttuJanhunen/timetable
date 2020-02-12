@@ -1,23 +1,8 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
-import Stop from './components/Stop'
 import Route from './components/Route'
 
-
-const CertainStop = gql`
-{
-  stop(id: "HSL:4670207") {
-    name
-    lat
-    lon
-    routes {
-      shortName
-      longName
-    }
-  }
-}
-`
 const fromHomeToWork = gql`
 {
   plan(

@@ -1,6 +1,7 @@
 import React from 'react'
 import Leg from './Leg'
-const dateFormat = require('dateformat')
+import timeService from '../services/time'
+import tripService from '../services/trip'
 
 const Route = ({ result }) => {
   if (result.loading) {
@@ -8,42 +9,6 @@ const Route = ({ result }) => {
   }
 
   const routes = result.data.plan.itineraries
-
-  const time = (secs) => {
-    let hours = Math.floor(secs / 3600)
-    secs %= 3600
-    let minutes = Math.floor(secs / 60)
-
-
-    if (hours === 0) {
-      return `${minutes}min`
-    } else {
-      minutes = String(minutes).padStart(2, "0")
-      return (`${hours}h ${minutes}min`)
-    }
-  }
-
-  const date = (secs) => {
-    let date = new Date(secs).toString()
-    return dateFormat(date, "HH:MM")
-  }
-
-  const distance = (meters) => {
-    const km = Math.round(meters) / 1000
-    const prettyKm = km.toString().substr(0, 3)
-    return prettyKm
-  }
-
-  const device = new Map([
-    ['WALK', 'jalan'],
-    ['RAIL', 'junalla'],
-    ['BUS', 'bussilla']
-  ])
-
-  const returnDevice = (mode) => {
-    let modeInFinnish = device.get(mode)
-    return modeInFinnish
-  }
 
   const timer = () => {
     setTimeout(() => {
@@ -53,23 +18,19 @@ const Route = ({ result }) => {
   }
 
   return (
-    <div>
+    <div className="container">
       {timer()}
       {routes.map(route =>
         <div className="route-info">
           <div className="head">
-            <h2>Kulkuyhteys välille Koti - Eficode</h2>
-            <p>Lähtö: {date(route.startTime)}, perillä: {date(route.endTime)}</p>
-            <p>Kokonaiskävelymatka: {distance(route.walkDistance)}km</p>
-            <p>Matkan kesto: {time(route.duration)}</p>
+            <h2>Kulkuyhteys välille Ruskeasanta, Vantaa - Eficode, Helsinki</h2>
+            <p>Lähtö: {timeService.date(route.startTime)}, perillä: {timeService.date(route.endTime)}</p>
+            <p>Kokonaiskävelymatka: {tripService.distance(route.walkDistance)}km</p>
+            <p>Matkan kesto: {timeService.time(route.duration)}</p>
           </div>
           <div className="phases">
             {route.legs.map(leg =>
-              <Leg leg={leg}
-                returnDevice={returnDevice}
-                time={time}
-                date={date}
-              />
+              <Leg leg={leg} />
             )}
           </div>
         </div>
