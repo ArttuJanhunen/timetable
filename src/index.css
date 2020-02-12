@@ -9,7 +9,7 @@ body {
   padding: 0px;
   text-align: center;
   background: rgb(99,99,99);
-  height: 100%;
+  height: 200%;
 }
 
 code {
@@ -17,8 +17,9 @@ code {
     monospace;
 }
 
-p, h2, .emoji, .loading {
+p, h2, .emoji, .loading, .head {
   color: aliceblue;
+  font-size: 100%;
 }
 
 
@@ -62,6 +63,7 @@ p, h2, .emoji, .loading {
   border-radius: 5px;
   font-weight: bolder;
   text-align: center;
+  height: 100%;
 }
 
 .phases {
@@ -76,10 +78,28 @@ p, h2, .emoji, .loading {
 }
 
 .emoji {
-  font-size: 30px;
+  font-size: 160%;
 }
 
 .container {
   height: 100%;
   width: 100%;
+}
+
+@media only screen and (min-width: 2400px) {
+  p, h2, .emoji, .loading, .head {
+    color: aliceblue;
+    font-size: 180%;
+  }
+  .RAIL, .WALK, .BUS, .SUBWAY, .TRAM {
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  p, h2, .emoji, .loading, .head {
+    color: aliceblue;
+    font-size: 80%;
+  }
 }
