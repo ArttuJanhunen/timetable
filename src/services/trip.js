@@ -9,11 +9,11 @@ const device = new Map([
   ['RAIL', 'junalla'],
   ['BUS', 'bussilla'],
   ['SUBWAY', 'metrolla'],
-  ['TRAM', 'raitiovaunulla']
+  ['TRAM', 'raitiovaunulla'],
 ])
 
 const returnDevice = (mode) => {
-  let modeInFinnish = device.get(mode)
+  const modeInFinnish = device.get(mode)
   return modeInFinnish
 }
 

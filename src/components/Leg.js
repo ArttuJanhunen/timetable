@@ -10,7 +10,7 @@ const Leg = ({ leg }) => {
     if (leg.route) {
       return leg.route && leg.route.shortName
     }
-    return tripService.distance(leg.distance) + 'km'
+    return `${tripService.distance(leg.distance)}km`
   }
 
   const start = () => {

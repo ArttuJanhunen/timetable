@@ -5,7 +5,7 @@ const emojiOptions = new Map([
   ['RAIL', emoji.get('bullettrain_front')],
   ['SUBWAY', emoji.get('metro')],
   ['TRAM', emoji.get('tram')],
-  ['BUS', emoji.get('oncoming_bus')]
+  ['BUS', emoji.get('oncoming_bus')],
 ])
 
 const emojiDisplayer = (mode) => {

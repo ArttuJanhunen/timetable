@@ -1,7 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
-import Route from './components/Route'
+import Itinerary from './components/Itinerary'
 
 const fromHomeToWork = gql`
 {
@@ -40,9 +40,9 @@ const fromHomeToWork = gql`
 const App = () => {
 
   return <Query query={fromHomeToWork}>
-    {(result) => <Route result={result} />}
+    {(result) => <Itinerary result={result} />}
   </Query>
 
 }
 
-export default App;
+export default App
