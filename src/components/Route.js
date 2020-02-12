@@ -4,7 +4,7 @@ const dateFormat = require('dateformat')
 
 const Route = ({ result }) => {
   if (result.loading) {
-    return <div className="loading">Loading..</div>
+    return <div className="loading">Loading...</div>
   }
 
   const routes = result.data.plan.itineraries
@@ -14,11 +14,13 @@ const Route = ({ result }) => {
     secs %= 3600
     let minutes = Math.floor(secs / 60)
 
-    minutes = String(minutes).padStart(2, "0");
+
     if (hours === 0) {
       return `${minutes}min`
+    } else {
+      minutes = String(minutes).padStart(2, "0")
+      return (`${hours}h ${minutes}min`)
     }
-    return (`${hours}h ${minutes}min`)
   }
 
   const date = (secs) => {
@@ -28,7 +30,8 @@ const Route = ({ result }) => {
 
   const distance = (meters) => {
     const km = Math.round(meters) / 1000
-    return km
+    const prettyKm = km.toString().substr(0, 3)
+    return prettyKm
   }
 
   const device = new Map([
@@ -55,7 +58,7 @@ const Route = ({ result }) => {
       {routes.map(route =>
         <div className="route-info">
           <div className="head">
-            <h2>Seuraava lähtö kotoa töihin: </h2>
+            <h2>Kulkuyhteys välille Koti - Eficode</h2>
             <p>Lähtö: {date(route.startTime)}, perillä: {date(route.endTime)}</p>
             <p>Kokonaiskävelymatka: {distance(route.walkDistance)}km</p>
             <p>Matkan kesto: {time(route.duration)}</p>
