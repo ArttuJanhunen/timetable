@@ -23,7 +23,7 @@ const fromHomeToWork = gql`
   plan(
     from: {lat: 60.315162, lon: 25.009745}
     to: {lat: 60.169371, lon: 24.925728}
-    numItineraries: 1
+    numItineraries: 2
     minTransferTime: 600
   ) {
     itineraries {

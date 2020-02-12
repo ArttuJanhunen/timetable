@@ -1,12 +1,13 @@
 body {
-  margin: 6;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
+  background: rgb(0,0,0);
 }
 
 code {
@@ -14,11 +15,44 @@ code {
     monospace;
 }
 
-.phase {
+.RAIL {
+  background-color: rgb(181, 91, 223);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  min-height: 250px;
+}
+
+.WALK {
+  background-color: rgb(226, 61, 61);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  min-height: 250px;
+}
+
+.BUS {
+  background-color: rgb(95, 132, 236);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  min-height: 250px;
+}
+
+.SUBWAY {
+  background-color: rgb(226, 156, 75);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  min-height: 250px;
+}
+
+.TRAM {
   background-color: rgb(116, 214, 145);
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
+  min-height: 250px;
 }
 
 .head {
@@ -26,4 +60,16 @@ code {
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
+  font-weight: bolder;
+}
+
+.phases {
+  display: flex;
+  font-weight: bold;
+}
+
+.loading {
+  color: blueviolet;
+  font-size: 100px;
+  padding: 300px;
 }
