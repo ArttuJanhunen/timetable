@@ -61,6 +61,7 @@ p, h2, .emoji, .loading {
   margin: 5px;
   border-radius: 5px;
   font-weight: bolder;
+  text-align: center;
 }
 
 .phases {
