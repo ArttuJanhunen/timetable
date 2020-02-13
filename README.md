@@ -2,6 +2,14 @@
 
 [Timetable in Heroku](https://timetable-2020.herokuapp.com/)
 
+### Idea of the application
+
+This application shows the next two commuting connections from Ruskeasanta, Vantaa, to Eficode office
+in Helsinki. Information is fetched from hsl api every minute and updated. Optimal usage is to run this
+app on a big screen. It also behaves quite well on different platforms, such as laptops. Mobile phone 
+requires some scrolling. Applications optimization included events like coding on the floor with
+laptop connected to 45" TV and fiddling around with CSS.
+
 ### To run locally
 
 * Clone repository
