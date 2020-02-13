@@ -7,7 +7,7 @@
 This application shows the next two commuting connections from Ruskeasanta, Vantaa, to Eficode office
 in Helsinki. Information is fetched from hsl api every minute and updated. Optimal usage is to run this
 app on a big screen. It also behaves quite well on different platforms, such as laptops. Mobile phone 
-requires some scrolling. Applications optimization included events like coding on the floor with
+requires some scrolling. Application's optimization included events like coding on the floor with
 laptop connected to 45" TV and fiddling around with CSS.
 
 ### To run locally
@@ -23,3 +23,6 @@ laptop connected to 45" TV and fiddling around with CSS.
 * Run `docker run -p 3000:3000 <preferred-image-name>`
 * Go to localhost port `3000`
 * Enjoy
+
+
+[Application's assignment info](https://github.com/eficode/assignment-timetables)
