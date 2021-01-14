@@ -1,10 +1,10 @@
 version: "3"
 services:
   coursematerial:
-    image: a4p3e/timetable-2020
+    image: a4p3e/timetable
     ports:
       - 3000:80
-    container_name: timetable-2020
+    container_name: timetable
   watchtower:
     image: containrrr/watchtower
     volumes:
