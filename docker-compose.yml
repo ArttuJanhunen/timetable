@@ -1,0 +1,12 @@
+version: "3"
+services:
+  coursematerial:
+    image: a4p3e/timetable-2020
+    ports:
+      - 3000:80
+    container_name: timetable-2020
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: watchtower
